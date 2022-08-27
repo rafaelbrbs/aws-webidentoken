@@ -3,13 +3,14 @@ name: aws-credentials
 on:
   push:
     branches: [ main ]
-    
+
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
@@ -19,7 +20,5 @@ jobs:
           role-to-assume: arn:aws:iam::254751826328:role/github-actions-role
           aws-region: us-east-1
         
-      - name: Command s3
-        run: |
-          aws s3api delete-bucket --bucket rafael-lab-aws-cred
-        
+      - name: List s3
+        run: aws s3 ls
