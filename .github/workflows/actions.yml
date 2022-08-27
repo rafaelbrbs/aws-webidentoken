@@ -11,8 +11,15 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - uses: actions/checkout@v3
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Git clone the repository
+        uses: actions/checkout@v3
+      - name: configure aws credentials 
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::254751826328:role/github-actions-role
           aws-region: us-east-1
+        
+      - name: List s3
+        run: |
+          aws s3 ls
+        
