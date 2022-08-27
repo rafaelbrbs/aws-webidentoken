@@ -19,7 +19,7 @@ jobs:
           role-to-assume: arn:aws:iam::254751826328:role/github-actions-role
           aws-region: us-east-1
         
-      - name: List s3
+      - name: Command s3
         run: |
-          aws s3 create-bucket --bucket rafael-lab-aws-cred
+          aws s3api create-bucket --bucket rafael-lab-aws-cred
         
