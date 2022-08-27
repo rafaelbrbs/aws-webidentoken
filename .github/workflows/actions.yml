@@ -1,1 +1,5 @@
+name: aws-credentials
 
+on:
+  push:
+    branches: [ main ]
