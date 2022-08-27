@@ -21,5 +21,5 @@ jobs:
         
       - name: Command s3
         run: |
-          aws s3api create-bucket --bucket rafael-lab-aws-cred
+          aws s3api delete-bucket --bucket rafael-lab-aws-cred
         
